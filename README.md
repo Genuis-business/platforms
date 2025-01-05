@@ -9,7 +9,20 @@ A Laravel package that provides seamless integration with various social media a
 
 ## Installation
 
-You can install the package via composer:
+Since this package is not published on packagist.org, you'll need to add the repository to your project's `composer.json` file:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Genuis-business/platforms"
+        }
+    ]
+}
+```
+
+Then you can install the package via composer:
 
 ```bash
 composer require bian/platforms
