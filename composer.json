@@ -1,0 +1,31 @@
+{
+    "name": "bian/platforms",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.0.1",
+    "autoload": {
+        "psr-4": {
+            "Bian\\Platforms\\": "src/"
+        },
+        "files": ["./src/helpers.php"]
+    },
+    "authors": [
+        {
+            "name": "Mohammed Hamid",
+            "email": "hamoda.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^10.0||^11.0",
+        "saloonphp/saloon": "^3.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bian\\Platforms\\PlatformsServiceProvider"
+            ]
+        }
+    }
+}
