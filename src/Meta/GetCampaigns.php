@@ -17,4 +17,11 @@ class GetCampaigns extends Request
     {
         return "/act_{$this->adAccountId}/campaigns";
     }
+
+    protected function defaultQuery(): array
+    {
+        return [
+            'fields' => 'id,name,status,objective,daily_budget,lifetime_budget,start_time,end_time,buying_type,bid_strategy,created_time,updated_time,insights{impressions,reach,spend,clicks,ctr,cpc}',
+        ];
+    }
 } 
