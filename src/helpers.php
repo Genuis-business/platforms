@@ -22,10 +22,10 @@ if (! function_exists('generateSnapchatAuthLink')) {
 if (! function_exists('generateSallaAuthLink')) {
     function generateSallaAuthLink(string $organizationId): string
     {
-        $redirect_uri = config('platforms.salla.redirect_url');
+        $redirect_url = config('platforms.salla.redirect_url');
         $client_id = config('platforms.salla.client_id');
 
-        return "https://accounts.salla.sa/oauth2/auth?state={$organizationId}&scope=&response_type=code&approval_prompt=auto&client_id={$client_id}";
+        return "https://accounts.salla.sa/oauth2/authorize?state={$organizationId}&scope=read&response_type=code&approval_prompt=auto&client_id={$client_id}&redirect_uri={$redirect_url}";
     }
 }
 
