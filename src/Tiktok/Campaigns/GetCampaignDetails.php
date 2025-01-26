@@ -20,7 +20,7 @@ class GetCampaignDetails extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/campaign/get';
+        return 'report/integrated/get';
     }
 
     protected function defaultBody(): array
