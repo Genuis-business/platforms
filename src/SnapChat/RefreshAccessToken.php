@@ -5,11 +5,11 @@ namespace Bian\Platforms\SnapChat;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\SoloRequest;
-use Saloon\Traits\Body\HasJsonBody;
+use Saloon\Traits\Body\HasFormBody;
 
 class RefreshAccessToken extends SoloRequest implements HasBody
 {
-    use HasJsonBody;
+    use HasFormBody;
 
     protected Method $method = Method::POST;
 
@@ -17,13 +17,10 @@ class RefreshAccessToken extends SoloRequest implements HasBody
 
     private string $client_secret;
 
-    private string $redirect_uri;
-
     public function __construct(private string $refresh_token)
     {
         $this->client_id = config('platforms.snapchat.client_id');
         $this->client_secret = config('platforms.snapchat.client_secret');
-        $this->redirect_uri = config('platforms.snapchat.redirect_url');
     }
 
     public function resolveEndpoint(): string

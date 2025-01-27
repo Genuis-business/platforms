@@ -11,8 +11,6 @@ class GetCampaignStats extends Request
 
     public function __construct(
         private string $campaignId,
-        private string $startTime,
-        private string $endTime,
         private string $granularity = 'TOTAL'
     ) {}
 
@@ -24,14 +22,10 @@ class GetCampaignStats extends Request
     protected function defaultQuery(): array
     {
         return [
-            'start_time' => $this->startTime,
-            'end_time' => $this->endTime,
-            'granularity' => $this->granularity,
             'fields' => implode(',', [
                 'spend',
                 'impressions',
                 'swipes',
-                'conversion_value',
             ]),
         ];
     }
