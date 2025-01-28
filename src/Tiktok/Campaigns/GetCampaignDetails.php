@@ -15,7 +15,9 @@ class GetCampaignDetails extends Request implements HasBody
 
     public function __construct(
         private string $advertiserId,
-        private string $campaignId
+        private string $campaignId,
+        private string $startDate,
+        private string $endDate,
     ) {}
 
     public function resolveEndpoint(): string
@@ -27,7 +29,13 @@ class GetCampaignDetails extends Request implements HasBody
     {
         return [
             'advertiser_id' => $this->advertiserId,
-            'campaign_ids' => [$this->campaignId],
+            "report_type" => "BASIC",
+            "data_level" => "AUCTION_CAMPAIGN",
+            "dimensions" => ["campaign_id"],
+            "start_date" => $this->startDate,
+            "end_date" => $this->endDate,
+            "metrics" => ["spend", "impressions", "clicks", "ctr"],
         ];
     }
 } 
+
