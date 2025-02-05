@@ -48,3 +48,13 @@ if (! function_exists('generateMetaAuthLink')) {
         return "https://www.facebook.com/v21.0/dialog/oauth?client_id={$client_id}&redirect_uri={$redirect_uri}&scope=ads_management&state={$organizationId}";
     }
 }
+
+if (! function_exists('generateSallaAuthLink')) {
+    function generateSallaAuthLink(string $organizationId): string
+    {
+        $redirect_url = config('platforms.salla.redirect_url');
+        $client_id = config('platforms.salla.client_id');
+
+        return "https://accounts.salla.sa/oauth2/auth?client_id={$client_id}&response_type=code&redirect_uri={$redirect_url}&scope=read write&state={$organizationId}";
+    }
+}
