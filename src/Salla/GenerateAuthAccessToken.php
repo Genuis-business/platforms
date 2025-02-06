@@ -15,16 +15,19 @@ class GenerateAuthAccessToken extends SoloRequest implements HasBody
      * Define the HTTP method
      */
     protected Method $method = Method::POST;
+    private readonly string $clientId;
+    private readonly string $clientSecret;
+    private readonly string $redirectUri;
 
     /**
      * Constructor for the auth token request
      */
-    public function __construct(
-        private readonly string $clientId,
-        private readonly string $clientSecret,
-        private readonly string $code,
-        private readonly string $redirectUri,
-    ) {}
+    public function __construct(private readonly string $code)
+    {
+        $this->clientId = config('platforms.salla.client_id');
+        $this->clientSecret = config('platforms.salla.client_secret');
+        $this->redirectUri = config('platforms.salla.redirect_url');
+    }
 
     /**
      * Define the endpoint for the request
