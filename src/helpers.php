@@ -25,7 +25,7 @@ if (! function_exists('generateSallaAuthLink')) {
         $redirect_url = config('platforms.salla.redirect_url');
         $client_id = config('platforms.salla.client_id');
 
-        return "https://accounts.salla.sa/oauth2/auth?state={$organizationId}&scope=read&response_type=code&approval_prompt=auto&client_id={$client_id}&redirect_uri={$redirect_url}";
+        return "https://accounts.salla.sa/oauth2/auth?state={$organizationId}&response_type=code&approval_prompt=auto&client_id={$client_id}&redirect_uri={$redirect_url}";
     }
 }
 
