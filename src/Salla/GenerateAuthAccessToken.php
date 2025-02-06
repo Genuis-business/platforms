@@ -22,7 +22,7 @@ class GenerateAuthAccessToken extends SoloRequest implements HasBody
     /**
      * Constructor for the auth token request
      */
-    public function __construct(private readonly string $code)
+    public function __construct(private readonly string $code, private readonly string $scope)
     {
         $this->clientId = config('platforms.salla.client_id');
         $this->clientSecret = config('platforms.salla.client_secret');
@@ -47,7 +47,7 @@ class GenerateAuthAccessToken extends SoloRequest implements HasBody
             'client_secret' => $this->clientSecret,
             'grant_type' => 'authorization_code',
             'code' => $this->code,
-            'scope' => 'offline_access',
+            'scope' => $this->scope,
             'redirect_uri' => $this->redirectUri,
         ];
     }
