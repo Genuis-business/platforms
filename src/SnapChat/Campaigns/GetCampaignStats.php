@@ -11,8 +11,8 @@ class GetCampaignStats extends Request
 
     public function __construct(
         private string $campaignId,
-        private string $startDate,
-        private string $endDate,
+        private string $startDate = '',
+        private string $endDate = '',
         private string $granularity = 'TOTAL'
     ) {}
 
