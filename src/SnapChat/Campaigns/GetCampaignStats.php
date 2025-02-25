@@ -11,6 +11,8 @@ class GetCampaignStats extends Request
 
     public function __construct(
         private string $campaignId,
+        private string $startDate,
+        private string $endDate,
         private string $granularity = 'TOTAL'
     ) {}
 
@@ -27,6 +29,9 @@ class GetCampaignStats extends Request
                 'impressions',
                 'swipes',
             ]),
+            'start_date' => $this->startDate,
+            'end_date' => $this->endDate,
+            'granularity' => $this->granularity,
         ];
     }
 } 
